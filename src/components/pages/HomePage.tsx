@@ -42,15 +42,22 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <div className="min-h-screen">
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 md:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.68_0.18_25_/_0.1),transparent_50%),radial-gradient(circle_at_70%_60%,oklch(0.35_0.08_250_/_0.08),transparent_50%)]" />
+      <section className="relative overflow-hidden py-20 md:py-32 min-h-[600px] md:min-h-[700px] flex items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://i.imgur.com/8KqZ9Xm.jpeg)',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-accent/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(0.35_0.08_250_/_0.3),transparent_50%)]" />
         
         <div className="container relative mx-auto max-w-7xl px-6">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8 text-foreground">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8 text-white drop-shadow-lg">
               {hero.headline}
             </h1>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -58,14 +65,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 size="lg"
                 variant="outline"
                 onClick={() => handleCTAClick(hero.primaryCTAs[0].link)}
-                className="text-lg px-8 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105"
+                className="text-lg px-8 bg-white/95 hover:bg-white text-primary border-white/20 backdrop-blur-sm transition-all hover:scale-105"
               >
                 {hero.primaryCTAs[0].title}
               </Button>
               <Button
                 size="lg"
                 onClick={() => handleCTAClick(hero.primaryCTAs[1].link)}
-                className="text-lg px-8 bg-accent hover:bg-accent/90 text-accent-foreground transition-all hover:scale-105"
+                className="text-lg px-8 bg-accent hover:bg-accent/90 text-accent-foreground transition-all hover:scale-105 shadow-lg"
               >
                 {hero.primaryCTAs[1].title}
               </Button>
